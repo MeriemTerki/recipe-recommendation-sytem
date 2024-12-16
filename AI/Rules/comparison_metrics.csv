@@ -1,0 +1,3 @@
+Algorithm,Number of Rules,Average Support,Average Confidence,Average Lift,Average Conviction
+apriori,2459,0.012957702200070025,0.6064069929967368,7.365839410325173,inf
+fpgrowth,2459,0.012957702200070025,0.6064069929967368,7.365839410325175,inf
