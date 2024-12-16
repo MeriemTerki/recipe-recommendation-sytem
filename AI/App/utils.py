@@ -162,5 +162,3 @@ def recommend_recipes(selected_ingredients, confidence_threshold=0.45, max_recip
     ].to_dict(orient="records")
 
     return refined_recipes
-
-
