@@ -5,7 +5,7 @@ from mlxtend.preprocessing import TransactionEncoder
 from scipy.sparse import csr_matrix
 
 # Path to the cleaned dataset
-DATA_PATH = r"C:\\Users\\mrmte\\Documents\\2CS_IASD\\ML_mini_projet\\mini-project-ml\\data\\cleaned_recipes.csv"
+DATA_PATH = r"C:\Users\mrmte\Documents\2CS_IASD\ML\ML_mini_projet\mini-project-ml\data\cleaned_recipes.csv"
 
 BATCH_SIZE = 50000  # Number of rows per batch
 
@@ -111,6 +111,13 @@ def recommend_recipes(selected_ingredients, confidence_threshold=0.45, max_recip
     Recommend recipes based on selected ingredients and additional recommendations with confidence > confidence_threshold,
     limiting the number of recommended recipes to max_recipes.
     """
+    # Print the parameters for debugging
+    print("Parameters:")
+    print(f"Selected Ingredients: {selected_ingredients}")
+    print(f"Confidence Threshold: {confidence_threshold}")
+    print(f"Max Recipes: {max_recipes}")
+    print(f"Filter Criteria: {filter_kwargs}")
+
     # Step 1: Filter recipes based on nutritional content and other criteria
     diet_data = filter_recipes_by_nutrition(**filter_kwargs)
 
@@ -156,10 +163,4 @@ def recommend_recipes(selected_ingredients, confidence_threshold=0.45, max_recip
 
     return refined_recipes
 
-if __name__ == "__main__":
-    # Example usage for testing
-    selected_ingredients = ["sugar", "flour"]
-    recipes = recommend_recipes(selected_ingredients, confidence_threshold=0.5, max_recipes=3, fat_content="low", cook_time=30)
-    print("Recommended recipes:")
-    for recipe in recipes:
-        print(recipe)
+
