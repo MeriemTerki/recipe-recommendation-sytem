@@ -15,7 +15,11 @@ const Popup = ({ recipe, onClose }) => {
 
       const options = {
         margin: 1,
+<<<<<<< HEAD
         filename: `${recipe.Name.replace(/\s+/g, "_")}_Recipe.pdf`, // Corrected: Use backticks for template literal
+=======
+        filename: `${recipe.name.replace(" ", "_")}_Recipe.pdf`,
+>>>>>>> b61472ee28d0913869d2182b9e02d71249793156
         html2canvas: { scale: 2 },
         jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
       };
@@ -24,6 +28,7 @@ const Popup = ({ recipe, onClose }) => {
     }
   };
 
+<<<<<<< HEAD
   const cleanInstructions = (input) => {
     if (!input || typeof input !== "string") return [];
     const match = input.match(/^c\((.*)\)$/);
@@ -70,10 +75,13 @@ const Popup = ({ recipe, onClose }) => {
   // Clean and format the ingredients
   const cleanedIngredients = cleanIngredients(RecipeIngredientParts || []);
 
+=======
+>>>>>>> b61472ee28d0913869d2182b9e02d71249793156
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-50">
       <div
         ref={popupRef}
+<<<<<<< HEAD
         className="bg-white rounded-lg shadow-lg max-w-2xl w-full overflow-hidden"
       >
         <div className="p-8 max-h-[90vh] overflow-y-auto">
@@ -123,6 +131,43 @@ const Popup = ({ recipe, onClose }) => {
               Close
             </button>
           </div>
+=======
+        className="bg-white rounded-lg shadow-lg p-8 max-w-2xl w-full"
+      >
+        <button
+          onClick={onClose}
+          className="text-myBrown font-bold float-right"
+        >
+          ✕
+        </button>
+        <img
+          src={recipe.image}
+          alt="#"
+          className="w-72 mx-auto object-cover img-shadow mb-4"
+        />
+        <h2 className="text-3xl font-bold text-center mb-4">{recipe.name}</h2>
+        <p className="font-semibold ">Rating: {recipe.raring}</p>
+        <p className="font-semibold ">
+          Number of servings: {recipe.recipeServings}
+        </p>
+        <p className="font-semibold ">Description: {recipe.description}</p>
+        <p className="font-semibold ">Duration: {recipe.cooktime}</p>
+        <p className="font-semibold ">Additional Info: {recipe.additionalInfo}</p>
+
+        <div className="mt-6 text-center space-x-4">
+          <button
+            onClick={handleExportToPDF}
+            className=" px-4 py-2 text-white order border-2 border-myOrange bg-myOrange rounded-md shadow hover:bg-mySunset hover:border-mySunset"
+          >
+            Export to PDF
+          </button>
+          <button
+            onClick={onClose}
+             className="  border border-2 border-myBrown py-2 px-4 rounded-md"
+          >
+            Close
+          </button>
+>>>>>>> b61472ee28d0913869d2182b9e02d71249793156
         </div>
       </div>
     </div>
